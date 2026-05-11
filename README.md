@@ -36,10 +36,10 @@ python cross_camera_reid.py --video_a camA.mp4 --video_b camB.mp4 --threshold 0.
 
 ```
 ┌─────────────────────┬─┬─────────────────────┐
-│    Camera A         │ │    Camera B          │
-│  [A] LID:1 GID:0   │ │  [B] LID:3 GID:0    │  ← 같은 GID = 동일 인물
-│  [A] LID:2 GID:1   │ │                      │
-│  frame 142          │ │  Matched IDs: 1      │
+│    Camera A         │ │    Camera B         │
+│  [A] LID:1 GID:0    │ │  [B] LID:3 GID:0    │  ← 같은 GID = 동일 인물
+│  [A] LID:2 GID:1    │ │                     │
+│  frame 142          │ │  Matched IDs: 1     │
 └─────────────────────┴─┴─────────────────────┘
 ```
 
