@@ -1,0 +1,25 @@
+# Cross-Camera ReID — pip requirements
+# conda 환경 생성 후 pip install -r requirements.txt 로 설치
+#
+# [전제] conda로 아래를 먼저 설치:
+#   conda install pytorch=2.2.2 torchvision=0.17.2 cpuonly -c pytorch
+#
+# GPU가 있다면 cpuonly 대신:
+#   conda install pytorch=2.2.2 torchvision=0.17.2 pytorch-cuda=11.8 -c pytorch -c nvidia
+
+# Detection + Tracking
+ultralytics==8.2.2          # YOLOv8n + ByteTrack 내장
+
+# Feature Extraction
+# CLIP은 PyPI 미등록 → git으로 설치 (아래 별도 명령 참고)
+ftfy==6.2.0                 # CLIP 내부 텍스트 정규화
+regex==2024.5.15            # CLIP 의존성
+tqdm==4.66.4                # 진행바
+
+# Computer Vision
+opencv-python==4.10.0.84
+Pillow==10.3.0
+
+# Math / Matching
+scipy==1.13.0
+numpy==1.26.4

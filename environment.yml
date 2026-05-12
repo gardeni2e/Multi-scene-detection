@@ -1,0 +1,35 @@
+name: reid
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip=24.0
+
+  # ── PyTorch GPU 버전 (GTX 1650 / Turing / Compute Capability 7.5) ──────────
+  # 먼저 nvidia-smi 실행해서 오른쪽 상단 "CUDA Version: XX.X" 확인
+  #
+  # [기본] CUDA 11.8 — nvidia-smi CUDA 버전이 11.x or 12.x 아무거나 OK
+  - pytorch=2.2.2
+  - torchvision=0.17.2
+  - torchaudio=2.2.2
+  - pytorch-cuda=11.8
+  #
+  # [선택] CUDA 12.1 — nvidia-smi CUDA 버전이 12.1 이상일 때
+  # 위 pytorch-cuda=11.8 줄 주석처리 후 아래 줄 활성화
+  # - pytorch-cuda=12.1
+
+  # 기타
+  - numpy=1.26.4
+  - scipy=1.13.0
+
+  - pip:
+    - ultralytics==8.2.2
+    - opencv-python==4.10.0.84
+    - Pillow==10.3.0
+    - ftfy==6.2.0
+    - regex==2024.5.15
+    - tqdm==4.66.4
+    - git+https://github.com/openai/CLIP.git
