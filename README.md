@@ -6,6 +6,19 @@ YOLO(탐지) → ByteTrack(단일 카메라 추적) → CLIP(임베딩 추출) �
 
 ---
 
+## Conda
+
+```bash
+conda env create -f environment.yml
+conda activate reid
+pip install git+https://github.com/openai/CLIP.git
+
+# GPU 정상 인식 확인
+python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
+# 출력: True  NVIDIA GeForce GTX 1650
+```
+
+
 ## 설치
 
 ```bash
