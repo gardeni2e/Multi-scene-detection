@@ -1,31 +1,3 @@
-아래 내용 그대로 README.md에 넣으면 될 것 같아. 프로젝트 설명 + v10 코드 구조 + Colab 실행법 + Drive 영상/출력 저장까지 포함했어.
-
-# Multi-Camera Pedestrian Re-Identification
-
-본 프로젝트는 서로 다른 두 CCTV 영상에서 등장하는 보행자를 탐지·추적하고, 각 보행자 track의 appearance feature를 기반으로 동일 인물 후보를 연결하는 **다중 카메라 보행자 Re-Identification 시스템**입니다.
-
-기본 입력은 두 개의 영상 `camA.mp4`, `camB.mp4`이며, 각 영상에서 사람을 검출하고 local tracking을 수행한 뒤, 서로 다른 카메라에 등장한 동일 인물에게 같은 Global ID를 부여하는 것을 목표로 합니다.
-
----
-
-## 1. 프로젝트 목표
-
-일반적인 CCTV 환경에서는 사람이 한 카메라의 시야에서 사라진 뒤 다른 카메라에 다시 등장할 수 있습니다. 이때 각 카메라의 local tracking 결과만으로는 같은 사람인지 알기 어렵습니다.
-
-본 프로젝트는 다음과 같은 흐름을 통해 이를 해결하고자 합니다.
-
-```text
-Cam A 영상 / Cam B 영상 입력
-→ YOLO11로 사람 detection
-→ BoT-SORT로 카메라 내부 local tracking
-→ OSNet으로 person crop feature 추출
-→ tracklet-level feature aggregation
-→ Cam A / Cam B track 간 similarity 계산
-→ evidence 기반 Global ID matching
-→ 결과 영상 저장
-
-즉, 단일 이미지 한 장을 비교하는 방식이 아니라, 각 local track에 포함된 여러 crop feature를 누적하여 tracklet-level representation을 구성하고, 이를 기반으로 cross-camera Re-ID를 수행합니다.
-
 2. 전체 코드 구조 설명
 
 현재 최종 버전은 v10 stable 버전입니다.
